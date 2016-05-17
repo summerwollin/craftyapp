@@ -5,9 +5,9 @@
     .factory('authService', factory);
 
 
-  factory.$inject = ['$http'];
+  factory.$inject = ['$http', 'env'];
 
-  function factory ($http) {
+  function factory ($http, env) {
 
     var currentUser = {};
 

@@ -19,10 +19,11 @@
   setupRoutes.$inject = [
     '$routeProvider',
     '$locationProvider',
-    '$httpProvider'
+    '$httpProvider',
+    'env'
   ];
 
-  function setupRoutes($routeProvider, $locationProvider, $httpProvider){
+  function setupRoutes($routeProvider, $locationProvider, $httpProvider, env){
     $httpProvider.interceptors.push("authInterceptor");
 
     $routeProvider
