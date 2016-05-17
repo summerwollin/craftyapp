@@ -21,16 +21,16 @@
 
     function addUser(user) {
       console.log('factory addUser: ', user);
-      return $http.post(apiHost + '/api/users', {user: user})
+      return $http.post(env.apiHost + '/api/users', {user: user})
     }
 
     function loginUser(user) {
       console.log('factory loginUser: ', user);
-      return $http.post(apiHost + '/api/users/login', {user: user})
+      return $http.post(env.apiHost + '/api/users/login', {user: user})
     }
 
     function setCurrentUser() {
-      $http.get(apiHost + '/api/users/me')
+      $http.get(env.apiHost + '/api/users/me')
       .then(function (response) {
           currentUser.details = response.data;
           return currentUser;

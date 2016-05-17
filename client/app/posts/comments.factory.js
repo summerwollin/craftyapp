@@ -17,7 +17,7 @@
     }
 
     function listComments(postid) {
-      return $http.get(apiHost + '/api/comments')
+      return $http.get(env.apiHost + '/api/comments')
         .then(function (response) {
           comments = response.data;
           return comments;
@@ -26,7 +26,7 @@
 
     function addComment(comment) {
       console.log('fac-com: ', comment);
-      return $http.post(apiHost + '/api/comments', {comment: comment})
+      return $http.post(env.apiHost + '/api/comments', {comment: comment})
         .then(function (response) {
           console.log('fac-then-com');
           comments.push(response.data);
