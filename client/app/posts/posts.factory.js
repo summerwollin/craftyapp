@@ -22,6 +22,7 @@
     }
 
     function listPosts() {
+      console.log('env::::: ', env.apiHost);
       return $http.get(apiHost + '/api/posts')
         .then(function (response) {
           posts = response.data;
