@@ -25,10 +25,8 @@
     }
 
     function addComment(comment) {
-      console.log('fac-com: ', comment);
       return $http.post(env.apiHost + '/api/comments', {comment: comment})
         .then(function (response) {
-          console.log('fac-then-com');
           comments.push(response.data);
           return response.data;
         })

@@ -22,13 +22,11 @@
     vm.loginUser = loginUser;
 
     function loginUser(user) {
-      console.log('loginUser controller:', vm.form.login);
       authService.loginUser({
         username: vm.form.login.username,
         password: vm.form.login.password
       }).then(function(response) {
         vm.form.login = {};
-        console.log('loginUser response: ', response.data);
           $window.localStorage.setItem('token', response.data.token);
           $location.path('/');
         })

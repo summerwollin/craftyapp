@@ -64,26 +64,21 @@
       listcomments.forEach(function(comment){
         if (post.id === comment.post_id) {
           post.comments.push(comment);
-          console.log(post);
         }
       })
     })
 
     function addPost(post) {
-      console.log('fac-post: ', post);
       return $http.post(env.apiHost + '/api/posts', {post: post})
         .then(function (response) {
-          console.log('fac-then');
           posts.push(response.data);
           return response.data;
         })
     }
 
     function addComment(comment) {
-      console.log('fac-post: ', post);
       return $http.post(env.apiHost + '/api/posts', {post: post})
         .then(function (response) {
-          console.log('fac-then');
           posts.push(response.data);
           return response.data;
         })

@@ -20,12 +20,10 @@
     }
 
     function addUser(user) {
-      console.log('factory addUser: ', user);
       return $http.post(env.apiHost + '/api/users', {user: user})
     }
 
     function loginUser(user) {
-      console.log('factory loginUser: ', user);
       return $http.post(env.apiHost + '/api/users/login', {user: user})
     }
 

@@ -79,7 +79,6 @@ router.get('/users/me', function (req, res, next) {
 
 router.post('/users', function(req, res, next) {
     const errors = [];
-    console.log('server-adduser: ', req.body.user);
 
     if (!req.body.user.username || !req.body.user.username.trim()) errors.push("Username can't be blank");
     if (!req.body.user.password || !req.body.user.password.trim()) errors.push("Password can't be blank");
