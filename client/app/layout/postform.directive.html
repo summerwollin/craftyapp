@@ -1,0 +1,15 @@
+<form ng-show="show.form && vm.user.details.valid" name="postForm" novalidate ng-submit="postForm.$valid && vm.addPost(vm.user)">
+  <div class="form-group" ng-class="{'has-error': postForm.title.$invalid && postForm.title.$touched}">
+    <label for="title">Title: <span ng-show="postForm.title.$invalid && postForm.title.$touched">Title is invalid</span></label>
+    <input ng-model="vm.form.post.title" name="title" type="text" id="title" class="form-control" ng-minlength=3 ng-maxlength=20 required>
+  </div>
+  <div class="form-group" ng-class="{'has-error': postForm.image.$invalid && postForm.image.$touched}">
+    <label for="image">Image URL: <span ng-show="postForm.image.$invalid && postForm.image.$touched">Image URL is invalid</span></label>
+    <input ng-model="vm.form.post.image" name="image" type="url" id="image" class="form-control" ng-minlength=3 required>
+  </div>
+  <div class="form-group" ng-class="{'has-error': postForm.description.$invalid && postForm.description.$touched}">
+    <label for="description">Description: <span ng-show="postForm.description.$invalid && postForm.description.$touched">Description is invalid</span></label>
+    <input ng-model="vm.form.post.description" name="description" type="text" id="description" class="form-control" ng-minlength=3 ng-maxlength=150 required>
+  </div>
+  <input type="submit" value="Submit">
+</form>

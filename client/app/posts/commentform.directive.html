@@ -1,0 +1,11 @@
+<form name="commentForm" novalidate  ng-submit="commentForm.$valid && vm.addComment(post)">
+  <div class="form-group" ng-class="{'has-error': commentForm.author.$invalid && commentForm.text.$touched}">
+    <label for="commentAuthor">Author: <span ng-show="commentForm.author.$invalid && commentForm.author.$touched">Author is invalid</span></label>
+    <input ng-model="vm.form.comment.author" name="author" type="text" id="commentAuthor" class="form-control" ng-minlength=3 ng-maxlength=12 required>
+  </div>
+  <div class="form-group" ng-class="{'has-error': commentForm.text.$invalid && commentForm.text.$touched}">
+    <label for="text">Text: <span ng-show="commentForm.text.$invalid && commentForm.text.$touched">Text is invalid</span></label>
+    <input ng-model="vm.form.comment.text" name="text" type="text" id="text" class="form-control" ng-minlength=3 ng-maxlength=150 required>
+  </div>
+  <input type="submit" value="Submit">
+</form>

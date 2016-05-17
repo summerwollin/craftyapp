@@ -1,0 +1,44 @@
+<div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Crafty</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input ng-model="filters.query" type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by: {{filters.sort}}<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" ng-click="filters.sort='votes'">Votes</a></li>
+              <li><a href="#" ng-click="filters.sort='date'">Date</a></li>
+              <li><a href="#" ng-click="filters.sort='title'">Title</a></li>
+            </ul>
+          </li>
+          <li><a href="#" ng-click="filters.direction = 'descending'"><i class="fa fa-sort-asc fa-3x" aria-hidden="true"></i></a></li>
+          <li><a href="#" ng-click="filters.direction = null"><i class="fa fa-sort-desc fa-3x" aria-hidden="true"></i></a></li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" ng-show="vm.user.details.valid" ng-click="vm.show.form = !vm.show.form">Submit Post</a></li>
+          <!-- <li><a href="#" ng-click="myState.clicked = !myState.clicked">Favorites</a></li> -->
+          <li><a href="#" ng-show="vm.user.details.valid" ng-click="vm.logout()">Logout</a></li>
+          <li><a href="signup" ng-hide="vm.user.details.valid">Sign Up</a></li>
+          <li><a href="login" ng-hide="vm.user.details.valid">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <rc-postform show='vm.show'></rc-postform>
+</div>

@@ -1,0 +1,37 @@
+<article ng-repeat="post in vm.posts | filter:filters.query | orderBy:filters.sort:filters.direction">
+  <div ng-if="post===0">
+    <h2>Sorry no posts</h2>
+  </div>
+  <div class="media well" ng-if="post!==0">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" ng-src="{{post.imageUrl}}" alt="postImg">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{post.title}} |
+        <a href="#"><i ng-click="vm.voteClick(post.id, 1)" class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        <a href="#"><i ng-click="vm.voteClick(post.id, -1)" class="fa fa-arrow-down" aria-hidden="true"></i></a>
+        <span ng-class="{'positive': post.votes > 0, 'negative': post.votes < 0}">{{post.votes}}</span>
+        <!-- <i aria-hidden="true" ng-click="post.favorite = !post.favorite" ng-class="{'fa fa-star-o': !post.favorite, 'fa fa-star': post.favorite}"></i> -->
+        <button class="btn btn-success btn-sm" ng-show="vm.user.details.valid" ng-click="vm.deletePost(post)">Delete</button>
+        <p class="pull-right">{{post.authorName}}</p>
+      </h4>
+      <p>{{post.description}}</p>
+      <p title="{{ post.date | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        {{post.date | amCalendar}} |
+        <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>
+        <span ng-click="commentsClicked = !commentsClicked">{{post.comments.length}} <ng-pluralize count="post.comments.length" when="{'1': 'Comment', 'other': 'Comments'}"></ng-pluralize></span></a>
+        <a ng-show="vm.user.details.valid" href="#"><i class="fa fa-pencil" aria-hidden="true"></i>
+        <span ng-click="formClicked = !formClicked">| Add Comment</span></a>
+      </p>
+
+      <rc-comments post='post' ng-show='commentsClicked'></rc-comments>
+
+      <rc-commentform post='post' ng-show='formClicked && vm.user.details.valid'></rc-commentform>
+
+    </div>
+  </div>
+
+</article>
