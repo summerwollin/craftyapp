@@ -30,7 +30,7 @@
       template: '<app></app>',
       resolve: {
         currentUser: function ($http, $rootScope) {
-          $http.get('http://localhost:3000/api/users/me')
+          $http.get(apiHost + '/api/users/me')
           .then(function (response) {
               var currentUser = response.data;
               $rootScope.currentUser = currentUser;
