@@ -20,7 +20,7 @@ a {
   font-size: 18px;
 }
 .navbar {
-  height: 10px;
+  min-height: 10px;
 }
 article {
   display: flex;
