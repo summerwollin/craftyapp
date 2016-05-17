@@ -10,8 +10,6 @@
   function factory ($http, env) {
     var posts = [];
 
-    var host = env.apiHost;
-
     return {
       add: addPost,
       list: listPosts,
@@ -22,8 +20,7 @@
     }
 
     function listPosts() {
-      console.log('env::::: ', env.apiHost);
-      return $http.get(apiHost + '/api/posts')
+      return $http.get(env.apiHost + '/api/posts')
         .then(function (response) {
           posts = response.data;
           return $http.get(env.apiHost + '/api/comments')
