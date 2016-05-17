@@ -22,10 +22,10 @@
     }
 
     function listPosts() {
-      return $http.get('http://localhost:3000/api/posts')
+      return $http.get(apiHost + '/api/posts')
         .then(function (response) {
           posts = response.data;
-          return $http.get('http://localhost:3000/api/comments')
+          return $http.get(apiHost + '/api/comments')
             .then(function (response) {
               var commentsRes = response.data;
               posts.forEach(function(post){
@@ -42,7 +42,7 @@
     };
 
     function getUsernames() {
-      return $http.get('http://localhost:3000/api/users')
+      return $http.get(apiHost + '/api/users')
         .then(function (response) {
           var users = response.data;
           users.forEach(function(user){
@@ -73,7 +73,7 @@
 
     function addPost(post) {
       console.log('fac-post: ', post);
-      return $http.post('http://localhost:3000/api/posts', {post: post})
+      return $http.post(apiHost + '/api/posts', {post: post})
         .then(function (response) {
           console.log('fac-then');
           posts.push(response.data);
@@ -83,7 +83,7 @@
 
     function addComment(comment) {
       console.log('fac-post: ', post);
-      return $http.post('http://localhost:3000/api/posts', {post: post})
+      return $http.post(apiHost + '/api/posts', {post: post})
         .then(function (response) {
           console.log('fac-then');
           posts.push(response.data);
@@ -92,10 +92,10 @@
     }
 
     function deletePost(postId) {
-      return $http.post('http://localhost:3000/api/posts/delete', {postId: postId})
+      return $http.post(apiHost + '/api/posts/delete', {postId: postId})
     }
     function voteClick(postId, vote) {
-      return $http.post('http://localhost:3000/api/posts/vote', {postId: postId, vote: vote})
+      return $http.post(apiHost + '/api/posts/vote', {postId: postId, vote: vote})
     }
 
   }

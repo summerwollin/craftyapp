@@ -13,7 +13,7 @@
   if (window.location.hostname === 'localhost') {
     angular.module('redditApp').constant('env', {apiHost: 'http://localhost:3000'});
   } else {
-    angular.module('redditApp').constant('env', {apiHost: 'heroku url'});
+    angular.module('redditApp').constant('env', {apiHost: 'https://peaceful-anchorage-88641.herokuapp.com'});
   }
 
   setupRoutes.$inject = [
