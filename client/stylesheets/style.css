@@ -1,13 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
 @font-face {
     font-family: pacifico;
     src: url(Pacifico.ttf);
 }
 * {
-  font-family: Courier New;
+  font-family: Lato;
 }
 .navbar-brand {
   font-family: pacifico;
-  font-size: 60px;
+  font-size: 36px !important;
 }
 .fa-sort-desc {
   margin-top: -25px;
@@ -19,8 +20,8 @@
 a {
   font-size: 18px;
 }
-.navbar {
-  min-height: 10px;
+.collapse {
+  padding-top: 20px;
 }
 article {
   display: flex;
